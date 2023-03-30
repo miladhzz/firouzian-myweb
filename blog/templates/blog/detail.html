@@ -1,6 +1,32 @@
-<article>
-    <img src="{{article.thumbnail.url}}" alt="{{article.title}}" width="600" height="400">
-    <h1>{{article.title}}</h1>
-    <small>{{article.publish}}</small>
-    <p>{{article.description}}</p>
+{% extends  'blog/base.html' %}
+{% block custome-header %}
+<link rel="stylesheet" type="text/css" href="red.css"
+{% endblock %}
+{% block title %} | {{article.title}}{% endblock %}
+{% block main %}
+
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{{article.thumbnail.url}}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>{{article.title}}</h1>
+                    <time>{{article.publish}}</time>
+                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content-->
+<article class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7 text-justify"> 
+                {{article.description|linebreaks}}          
+            </div>
+        </div>
+    </div>
 </article>
+{% endblock %}
